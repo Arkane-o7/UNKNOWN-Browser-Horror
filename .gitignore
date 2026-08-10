@@ -1,0 +1,6 @@
+node_modules/
+dist/
+test-artifacts/
+.web_game_playwright_client.mjs
+.DS_Store
+*.log
