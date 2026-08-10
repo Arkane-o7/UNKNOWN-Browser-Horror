@@ -1,5 +1,9 @@
 # UNKNOWN
 
+![React](https://img.shields.io/badge/React-19-149eca?logo=react)
+![Vite](https://img.shields.io/badge/Vite-7-646cff?logo=vite&logoColor=white)
+![Privacy](https://img.shields.io/badge/backend-none-22c55e)
+
 **A browser privacy horror experience.**
 
 UNKNOWN is a scripted psychological horror game about browser fingerprinting. A vulnerable entity appears to be trapped inside a tab. As the player helps it inspect its prison, ordinary browser characteristics begin to form a recognizable profile.
@@ -7,6 +11,17 @@ UNKNOWN is a scripted psychological horror game about browser fingerprinting. A 
 There is no AI behind the entity, no fake hacking, and no tracking backend. The story is a deterministic narrative state machine; the browser facts shown to the player are collected from APIs available to the page.
 
 > The entity wasn't real. The data was.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Encounter
+    Encounter --> Consent: Player runs diagnostic
+    Consent --> Observation: Read browser-exposed signals
+    Observation --> Narrative: Local deterministic state machine
+    Narrative --> Reveal: Explain the fingerprint
+    Reveal --> Receipt: Show observed and withheld data
+    Receipt --> [*]
+```
 
 ## Why it exists
 
