@@ -5,3 +5,4 @@ test-artifacts/
 .DS_Store
 *.log
 .vercel
+.env*.local
