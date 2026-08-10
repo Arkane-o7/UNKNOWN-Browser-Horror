@@ -177,7 +177,7 @@ export async function collectEnvironmentSignals(): Promise<BrowserSignal[]> {
     makeSignal({ id: "historyDepth", label: "TAB HISTORY DEPTH", value: `${history.length} ${history.length === 1 ? "entry" : "entries"}; addresses not exposed`, source: "History.length (count only)", sensitivity: "low", requiresPermission: false, category: "environment" }),
     makeSignal({ id: "storageEstimate", label: "ORIGIN STORAGE ESTIMATE", value: storageValue, source: "StorageManager.estimate (conservative, origin-scoped)", sensitivity: "moderate", requiresPermission: false, category: "environment", available: storageQuota !== undefined }),
     makeSignal({ id: "pdfViewer", label: "PDF VIEWER", value: navigator.pdfViewerEnabled === undefined ? "NOT EXPOSED" : navigator.pdfViewerEnabled ? "enabled" : "disabled", source: "Navigator.pdfViewerEnabled", sensitivity: "low", requiresPermission: false, category: "environment", available: navigator.pdfViewerEnabled !== undefined }),
-    makeSignal({ id: "cookieSupport", label: "COOKIE SUPPORT", value: navigator.cookieEnabled ? "enabled (COOKIE sets none)" : "disabled", source: "Navigator.cookieEnabled", sensitivity: "low", requiresPermission: false, category: "environment" }),
+    makeSignal({ id: "cookieSupport", label: "COOKIE SUPPORT", value: navigator.cookieEnabled ? "enabled (UNKNOWN sets none)" : "disabled", source: "Navigator.cookieEnabled", sensitivity: "low", requiresPermission: false, category: "environment" }),
   ];
 }
 
@@ -213,7 +213,7 @@ export async function collectGraphicsSignals(): Promise<BrowserSignal[]> {
     context.textBaseline = "alphabetic";
     context.font = "17px 'IBM Plex Mono', monospace";
     context.fillStyle = "#d8d3c7";
-    context.fillText("COOKIE // your computer has handwriting", 13, 36);
+    context.fillText("UNKNOWN // your computer has handwriting", 13, 36);
     context.globalCompositeOperation = "multiply";
     context.fillStyle = "rgba(135, 164, 142, .83)";
     context.beginPath();

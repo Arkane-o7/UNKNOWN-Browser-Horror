@@ -1,8 +1,8 @@
-# COOKIE
+# UNKNOWN
 
 **A browser privacy horror experience.**
 
-COOKIE is a scripted psychological horror game about browser fingerprinting. A vulnerable entity appears to be trapped inside a tab. As the player helps it inspect its prison, ordinary browser characteristics begin to form a recognizable profile.
+UNKNOWN is a scripted psychological horror game about browser fingerprinting. A vulnerable entity appears to be trapped inside a tab. As the player helps it inspect its prison, ordinary browser characteristics begin to form a recognizable profile.
 
 There is no AI behind the entity, no fake hacking, and no tracking backend. The story is a deterministic narrative state machine; the browser facts shown to the player are collected from APIs available to the page.
 
@@ -10,13 +10,13 @@ There is no AI behind the entity, no fake hacking, and no tracking backend. The 
 
 ## Why it exists
 
-Deleting cookies matters, but cookies are not the only way a browser can look recognizable. Screen characteristics, language, timezone, graphics output, hardware hints, and preferences can form a useful correlation signal when combined. COOKIE makes that abstract privacy lesson felt before explaining it plainly.
+Deleting cookies matters, but cookies are not the only way a browser can look recognizable. Screen characteristics, language, timezone, graphics output, hardware hints, and preferences can form a useful correlation signal when combined. UNKNOWN makes that abstract privacy lesson felt before explaining it plainly.
 
 A fingerprint is not automatically a legal identity, an exact person, or proof of uniqueness. Browsers may coarsen, mask, or randomize the values exposed to sites. The ending calls out those limits and shows a session-specific receipt of what was—and was not—observed.
 
 ## What the experience observes
 
-Only after the player chooses **Run Diagnostic**, COOKIE reads:
+Only after the player chooses **Run Diagnostic**, UNKNOWN reads:
 
 - browser family/version and high-entropy build hints from the user agent or User-Agent Client Hints, with withheld and reduced values labeled;
 - platform, architecture, bitness, platform-version, and device-model hints where exposed;
@@ -34,7 +34,7 @@ Only after the player chooses **Run Diagnostic**, COOKIE reads:
 - WebGL version, vendor, renderer, implementation limits, and a local hash of the supported-extension list;
 - a locally hashed result of a deterministic, hidden Canvas rendering;
 - a locally hashed deterministic `OfflineAudioContext` render and its sample rate, without microphone access;
-- PDF-viewer and cookie-support capability flags. COOKIE still sets no cookies.
+- PDF-viewer and cookie-support capability flags. UNKNOWN still sets no cookies.
 
 The game combines the observed values into a short **local profile signature**. It is a narrative/session signature, not a claim of global uniqueness or identity confidence.
 
@@ -42,13 +42,13 @@ The game combines the observed values into a short **local profile signature**. 
 
 Precise geolocation is the only sensitive API the game can request. It is requested only when the player explicitly chooses **Unlock Location**, using the browser's native permission prompt. A refusal, browser denial, timeout, or unavailable API all have complete story branches.
 
-If coordinates are granted, the latitude, longitude, and reported accuracy remain in React state in the current tab. COOKIE does not transmit or store them.
+If coordinates are granted, the latitude, longitude, and reported accuracy remain in React state in the current tab. UNKNOWN does not transmit or store them.
 
 Camera and microphone are deliberately left locked for the entire experience. They are never requested. The silent-audio scene uses `OfflineAudioContext`: the browser computes a synthetic signal directly into memory, without sending that trace to the speakers or recording the room. Its displayed sample rate is the requested offline render rate, not a claim about the physical audio device.
 
 ## What it does not observe
 
-COOKIE does not access or claim to know:
+UNKNOWN does not access or claim to know:
 
 - the player's name, passwords, browsing-history contents, personal files, contacts, or messages;
 - the contents of other tabs or which tab the player visits;
@@ -68,7 +68,7 @@ Approximate IP geolocation was intentionally omitted because using a third-party
 - Restarting clears all collected narrative and profile state.
 - Closing or reloading the tab discards the in-memory state.
 
-Like every hosted website, the server delivering the application necessarily receives an ordinary HTTP request and may keep infrastructure logs according to the host's policy. COOKIE itself adds no telemetry or tracking requests. Preserve that guarantee when deploying it.
+Like every hosted website, the server delivering the application necessarily receives an ordinary HTTP request and may keep infrastructure logs according to the host's policy. UNKNOWN itself adds no telemetry or tracking requests. Preserve that guarantee when deploying it.
 
 ## Running locally
 
@@ -138,4 +138,4 @@ Development builds support `?debug=1` for a debug panel that can jump between sc
 
 ## Educational disclaimer
 
-COOKIE is an educational demonstration, not a production fingerprinting library and not a measurement of how unique any particular visitor is. Browser APIs and privacy protections change over time. If the project is extended, keep the core rule intact: when a real browser limitation conflicts with a scarier line, tell the truth.
+UNKNOWN is an educational demonstration, not a production fingerprinting library and not a measurement of how unique any particular visitor is. Browser APIs and privacy protections change over time. If the project is extended, keep the core rule intact: when a real browser limitation conflicts with a scarier line, tell the truth.

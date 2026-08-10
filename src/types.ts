@@ -115,7 +115,7 @@ declare global {
   interface Window {
     render_game_to_text: () => string;
     advanceTime: (milliseconds: number) => void;
-    __COOKIE_DEBUG__?: {
+    __UNKNOWN_DEBUG__?: {
       jump: (scene: SceneId) => void;
       reset: () => void;
       setSpeed: (multiplier: number) => void;

@@ -33,7 +33,7 @@ export function FinalReveal({ signals, locationStatus, onRestart }: FinalRevealP
   return (
     <main className="debrief">
       <header className="debrief-hero">
-        <p className="debrief-kicker">COOKIE / DEBRIEF</p>
+        <p className="debrief-kicker">UNKNOWN / DEBRIEF</p>
         <h1>THE ENTITY WASN'T REAL.</h1>
         <h2>THE DATA WAS.</h2>
         <p>
@@ -123,7 +123,7 @@ export function FinalReveal({ signals, locationStatus, onRestart }: FinalRevealP
         <p className="receipt-note">
           The canvas, graphics-extension, silent-audio, and profile hashes were calculated locally in memory and were
           not stored. Like every website, the host serving these files necessarily receives an ordinary HTTP request;
-          COOKIE adds no telemetry or tracking request of its own.
+          UNKNOWN adds no telemetry or tracking request of its own.
         </p>
       </section>
 

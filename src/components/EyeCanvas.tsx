@@ -234,10 +234,10 @@ export function EyeCanvas({ mood, corruption, hidden = false, onPointerSeen }: E
       timeOffsetRef.current += (event as CustomEvent<number>).detail || 0;
     };
     window.addEventListener("pointermove", onPointerMove, { passive: true });
-    window.addEventListener("cookie:advance", onAdvance);
+    window.addEventListener("unknown:advance", onAdvance);
     return () => {
       window.removeEventListener("pointermove", onPointerMove);
-      window.removeEventListener("cookie:advance", onAdvance);
+      window.removeEventListener("unknown:advance", onAdvance);
     };
   }, [onPointerSeen]);
 

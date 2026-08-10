@@ -333,7 +333,7 @@ export default function App() {
   const debugEnabled = import.meta.env.DEV && new URLSearchParams(window.location.search).get("debug") === "1";
   useEffect(() => {
     if (!debugEnabled) return;
-    window.__COOKIE_DEBUG__ = {
+    window.__UNKNOWN_DEBUG__ = {
       jump: setSceneId,
       reset: restart,
       setSpeed: (speed) => gameClock.setSpeed(speed),
@@ -343,7 +343,7 @@ export default function App() {
     const requestedSpeed = Number(new URLSearchParams(window.location.search).get("speed") || 1);
     gameClock.setSpeed(requestedSpeed);
     return () => {
-      delete window.__COOKIE_DEBUG__;
+      delete window.__UNKNOWN_DEBUG__;
       gameClock.resetSpeed();
     };
   }, [debugEnabled, restart, simulateLocation]);
@@ -378,7 +378,7 @@ export default function App() {
 
       <div className="game-hud">
         <header className="top-bar">
-          <div className="wordmark"><strong>COOKIE</strong><span>{scene.act}</span></div>
+          <div className="wordmark"><strong>UNKNOWN</strong><span>{scene.act}</span></div>
           <div className="top-meta">
             <span className="room-path">{scene.room}</span>
             <button
@@ -436,7 +436,7 @@ export default function App() {
         />
 
         {!booted && (
-          <section className="boot-gate" aria-label="Initialize COOKIE with sound">
+          <section className="boot-gate" aria-label="Initialize UNKNOWN with sound">
             <div className="boot-status" aria-hidden="true">
               <span>AUDIO OUTPUT</span><i /><strong>ARMED</strong>
             </div>

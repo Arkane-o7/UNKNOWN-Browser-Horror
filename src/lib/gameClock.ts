@@ -35,7 +35,7 @@ class GameClock {
     const ready = this.tasks.filter((task) => task.at <= this.virtualTime);
     this.tasks = this.tasks.filter((task) => task.at > this.virtualTime);
     ready.forEach((task) => task.resolve());
-    window.dispatchEvent(new CustomEvent("cookie:advance", { detail: milliseconds }));
+    window.dispatchEvent(new CustomEvent("unknown:advance", { detail: milliseconds }));
   }
 
   setSpeed(multiplier: number): void {

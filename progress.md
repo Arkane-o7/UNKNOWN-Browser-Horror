@@ -17,6 +17,7 @@ Original prompt: Build “COOKIE” — a polished browser privacy horror game f
 - 2026-08-09: Deepened the fingerprinting demonstration with high-entropy browser/platform hints, locale shape, display and pointer capabilities, connection estimates, truthful referrer/history-count boundaries, origin-scoped storage estimates, WebGL limits and extension hashing, and a deterministic offline-audio signature that never touches the microphone.
 - 2026-08-09: Added a new silent-audio act, rewrote the profile/cookie/escape dialogue around the implication of recognition rather than fake hacking, and expanded the debrief with explicit capability boundaries for history, storage, Client Hints, and offline audio.
 - 2026-08-09: Passed the full branch-complete Playwright regression after the deep-trace expansion and visually inspected desktop/mobile machine, audio, profile, cookie reveal, vector, location, and debrief states.
+- 2026-08-10: Rebranded the experience from COOKIE to UNKNOWN, including the visible interface, metadata, debrief, package identity, debug/test hooks, documentation, and deployment-facing names. The original prompt above remains unchanged as historical context.
 
 ## Current status
 

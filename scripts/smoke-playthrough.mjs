@@ -1,7 +1,7 @@
 import { mkdir } from "node:fs/promises";
 import { chromium } from "playwright";
 
-const baseUrl = process.env.COOKIE_TEST_URL || "http://127.0.0.1:5173";
+const baseUrl = process.env.UNKNOWN_TEST_URL || "http://127.0.0.1:5173";
 const artifactDirectory = "test-artifacts/playthrough";
 await mkdir(artifactDirectory, { recursive: true });
 
@@ -89,7 +89,7 @@ try {
   const page = await context.newPage();
   await configurePage(page, errors, externalRequests);
   await page.goto(`${baseUrl}/?debug=1&speed=100`, { waitUntil: "domcontentloaded" });
-  await page.waitForFunction(() => Boolean(window.__COOKIE_DEBUG__));
+  await page.waitForFunction(() => Boolean(window.__UNKNOWN_DEBUG__));
   await screenshot(page, "00-audio-gate");
   await initialize(page);
   await waitForScene(page, "contact-awake");
@@ -150,7 +150,7 @@ try {
   await waitForScene(page, "tab-prison");
   await waitForChoice(page, "refuse-tab");
   await screenshot(page, "05-tab-prison");
-  await page.evaluate(() => window.__COOKIE_DEBUG__.setSpeed(1));
+  await page.evaluate(() => window.__UNKNOWN_DEBUG__.setSpeed(1));
 
   const otherPage = await context.newPage();
   await otherPage.goto("about:blank");
@@ -174,7 +174,7 @@ try {
     throw new Error("The tab did not react to a genuine viewport resize.");
   }
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.evaluate(() => window.__COOKIE_DEBUG__.setSpeed(100));
+  await page.evaluate(() => window.__UNKNOWN_DEBUG__.setSpeed(100));
 
   await choose(page, "refuse-tab", "end connection");
   await waitForScene(page, "tab-refused");
@@ -232,9 +232,9 @@ try {
   const grantedPage = await grantedContext.newPage();
   await configurePage(grantedPage, errors, externalRequests);
   await grantedPage.goto(`${baseUrl}/?debug=1&speed=100`, { waitUntil: "domcontentloaded" });
-  await grantedPage.waitForFunction(() => Boolean(window.__COOKIE_DEBUG__));
+  await grantedPage.waitForFunction(() => Boolean(window.__UNKNOWN_DEBUG__));
   await initialize(grantedPage);
-  await grantedPage.evaluate(() => window.__COOKIE_DEBUG__.jump("doors"));
+  await grantedPage.evaluate(() => window.__UNKNOWN_DEBUG__.jump("doors"));
   await choose(grantedPage, "unlock-location", "unlock location");
   await waitForScene(grantedPage, "location-granted");
   await waitForChoice(grantedPage, "enter-tab");
@@ -250,9 +250,9 @@ try {
   const deniedPage = await deniedContext.newPage();
   await configurePage(deniedPage, errors, externalRequests);
   await deniedPage.goto(`${baseUrl}/?debug=1&speed=100`, { waitUntil: "domcontentloaded" });
-  await deniedPage.waitForFunction(() => Boolean(window.__COOKIE_DEBUG__));
+  await deniedPage.waitForFunction(() => Boolean(window.__UNKNOWN_DEBUG__));
   await initialize(deniedPage);
-  await deniedPage.evaluate(() => window.__COOKIE_DEBUG__.jump("doors"));
+  await deniedPage.evaluate(() => window.__UNKNOWN_DEBUG__.jump("doors"));
   await choose(deniedPage, "unlock-location", "unlock location");
   await waitForScene(deniedPage, "location-denied");
   if ((await state(deniedPage)).locationStatus !== "denied") {
@@ -271,7 +271,7 @@ try {
   const withheldGraphicsPage = await withheldGraphicsContext.newPage();
   await configurePage(withheldGraphicsPage, errors, externalRequests);
   await withheldGraphicsPage.goto(`${baseUrl}/?debug=1&speed=100`, { waitUntil: "domcontentloaded" });
-  await withheldGraphicsPage.waitForFunction(() => Boolean(window.__COOKIE_DEBUG__));
+  await withheldGraphicsPage.waitForFunction(() => Boolean(window.__UNKNOWN_DEBUG__));
   await initialize(withheldGraphicsPage);
   await waitForScene(withheldGraphicsPage, "contact-awake");
   await choose(withheldGraphicsPage, "run-diagnostic", "run diagnostic");
@@ -297,7 +297,7 @@ try {
   const alternatePage = await alternateContext.newPage();
   await configurePage(alternatePage, errors, externalRequests);
   await alternatePage.goto(`${baseUrl}/?debug=1&speed=100`, { waitUntil: "domcontentloaded" });
-  await alternatePage.waitForFunction(() => Boolean(window.__COOKIE_DEBUG__));
+  await alternatePage.waitForFunction(() => Boolean(window.__UNKNOWN_DEBUG__));
   if (!await alternatePage.evaluate(() => matchMedia("(prefers-reduced-motion: reduce)").matches)) {
     throw new Error("Reduced-motion preference was not recognized.");
   }
@@ -327,7 +327,7 @@ try {
   await waitForScene(alternatePage, "network-truth");
   await choose(alternatePage, "inspect-doors", "inspect locked interfaces");
   await waitForScene(alternatePage, "doors");
-  await alternatePage.evaluate(() => window.__COOKIE_DEBUG__.simulateLocation("unavailable"));
+  await alternatePage.evaluate(() => window.__UNKNOWN_DEBUG__.simulateLocation("unavailable"));
   await waitForScene(alternatePage, "location-unavailable");
   await waitForChoice(alternatePage, "enter-tab");
   await alternateContext.close();
@@ -336,7 +336,7 @@ try {
   const mobilePage = await mobileContext.newPage();
   await configurePage(mobilePage, errors, externalRequests);
   await mobilePage.goto(`${baseUrl}/?debug=1&speed=100`, { waitUntil: "domcontentloaded" });
-  await mobilePage.waitForFunction(() => Boolean(window.__COOKIE_DEBUG__));
+  await mobilePage.waitForFunction(() => Boolean(window.__UNKNOWN_DEBUG__));
   await screenshot(mobilePage, "00-audio-gate-mobile");
   await initialize(mobilePage);
   await waitForScene(mobilePage, "contact-awake");
@@ -376,7 +376,7 @@ try {
   if (externalRequests.size) throw new Error(`Unexpected external requests: ${[...externalRequests].join(", ")}`);
   if (errors.length) throw new Error(`Browser errors:\n${errors.join("\n")}`);
 
-  console.log("COOKIE playthrough passed: all choices, visibility/resize reactions, permission states, restart, privacy receipt, reduced motion, desktop, and mobile.");
+  console.log("UNKNOWN playthrough passed: all choices, visibility/resize reactions, permission states, restart, privacy receipt, reduced motion, desktop, and mobile.");
 } finally {
   await browser.close();
 }
